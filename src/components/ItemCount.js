@@ -22,7 +22,7 @@ const ItemCount = (props) => {
 
   return (
     <p>
-      <button onClick={handleIncrease}>Agregar</button> Cantidad actual:
+      <button onClick={handleIncrease}>Agregar</button> Cantidad actual:{" "}
       {contador} <button onClick={handleSubtract}> Sacar</button>
       <br />
       <button onClick={props.onAdd}>Agregar al carrito</button>

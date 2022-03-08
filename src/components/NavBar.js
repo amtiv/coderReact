@@ -9,9 +9,8 @@ const NavBar = () => {
         <Navbar.Brand href="home">iMovil</Navbar.Brand>
         <Nav className="justify-content-end">
           <Nav.Link href="Samsung">Samsung</Nav.Link>
-          <Nav.Link href="Xiaomi">Xiaomi</Nav.Link>
           <Nav.Link href="Apple">Apple</Nav.Link>
-          <Nav.Link href="Huawei">Huawei</Nav.Link>
+          <Nav.Link href="Xiaomi">Xiaomi</Nav.Link>
           <Nav.Link>
             <CartWidget />
           </Nav.Link>
