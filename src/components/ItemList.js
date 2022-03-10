@@ -4,10 +4,10 @@ import Item from "./Item";
 const ItemList = (props) => {
   return (
     <ul>
-      {props.items.map((product, indice) => {
+      {props.items.map((product) => {
         return (
           <Item
-            id={product.id}
+            key={product.id}
             title={product.title}
             price={product.price}
             pictureUrl={product.pictureUrl}

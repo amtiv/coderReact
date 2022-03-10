@@ -22,3 +22,23 @@ body {
   color: white;
 }
 
+.items {
+  display: inline-flex;
+  color: black;
+  background-color: white;
+  border-radius: 3rem;
+  max-width: 25rem;
+  margin: 3rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.detail {
+  display: flex;
+  color: white;
+  background-color: black;
+  border-radius: 1.5em;
+  padding: 3rem;
+  border: gray 0.1em solid;
+  text-align: center;
+}
