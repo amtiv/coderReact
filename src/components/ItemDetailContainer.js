@@ -13,7 +13,7 @@ let itemDetail = {
 };
 
 function ItemDetailContainer() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
