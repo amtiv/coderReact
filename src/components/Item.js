@@ -7,7 +7,7 @@ const Item = (props) => {
       <img src={props.pictureUrl} alt="celular de muestra" width="200px" />
       <div>
         <h2>{props.title}</h2>
-        <p>{props.price}</p>
+        <p>$ {props.price}</p>
         <p>Stock disponible: {props.stock}</p>
         {/* <ItemCount /> */}
       </div>

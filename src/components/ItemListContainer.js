@@ -66,19 +66,19 @@ export const ItemListContainer = (props) => {
     const promesa = new Promise((res, rej) => {
       setTimeout(() => {
         res(productosIni);
-
-        promesa
-          .then((respuesta) => {
-            setProducts(productosIni);
-          })
-          .catch((err) => {
-            console.log(err);
-          })
-          .finally(() => {
-            setLoading(false);
-          });
       }, 3000);
     });
+
+    promesa
+      .then((rta) => {
+        setProducts(rta);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
 
   return (

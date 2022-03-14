@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Spinner } from "react-bootstrap";
 import ItemDetail from "./ItemDetail";
 
 let itemDetail = {
@@ -21,27 +20,25 @@ function ItemDetailContainer() {
     const promesa = new Promise((res, rej) => {
       setTimeout(() => {
         res(itemDetail);
-
-        promesa
-          .then((respuesta) => {
-            setProducts(itemDetail);
-          })
-          .catch((err) => {
-            console.log(err);
-          })
-          .finally(() => {
-            setLoading(false);
-          });
       }, 3000);
     });
+
+    promesa
+      .then((rta) => {
+        setProducts(rta);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
 
   return (
     <div>
       {loading ? (
-        <Spinner animation="border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
+        <span className="visually-hidden">Loading...</span>
       ) : (
         <ItemDetail products={products} />
       )}
