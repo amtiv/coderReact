@@ -1,21 +1,29 @@
 import React from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import CartWidget from "./CartWidget";
+import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <Navbar className="main-navbar" bg="dark" variant="dark">
-      <Container>
-        <Navbar.Brand href="home">iMovil</Navbar.Brand>
-        <Nav className="justify-content-end">
-          <Nav.Link href="Samsung">Samsung</Nav.Link>
-          <Nav.Link href="Apple">Apple</Nav.Link>
-          <Nav.Link href="Xiaomi">Xiaomi</Nav.Link>
-          <Nav.Link>
-            <CartWidget />
-          </Nav.Link>
-        </Nav>
-      </Container>
+      <Navbar.Brand as={Link} to="/" className="justify-content">
+        iMovil
+      </Navbar.Brand>
+      <Nav className="justify-content-end" style={{ width: "90%" }}>
+        <Nav.Link as={NavLink} to="/phone/Samsung">
+          Samsung
+        </Nav.Link>
+        <Nav.Link as={NavLink} to="/phone/Apple">
+          Apple
+        </Nav.Link>
+        <Nav.Link as={NavLink} to="/phone/Xiaomi">
+          Xiaomi
+        </Nav.Link>
+        <Nav.Link as={NavLink} to="/carrito">
+          <CartWidget />
+        </Nav.Link>
+      </Nav>
     </Navbar>
   );
 };

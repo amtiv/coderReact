@@ -31,9 +31,33 @@ body {
   margin: 3rem;
   padding: 2rem;
   text-align: center;
+  img {
+    padding: 0.3rem;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+#container {
+  margin: 2em;
 }
 
 .detail {
+  display: flex;
+  color: black;
+  background-color: white;
+  border-radius: 1.5em;
+  padding: 3rem;
+  border: gray 0.1em solid;
+  text-align: center;
+
+  img {
+    padding: 0.5em;
+  }
+}
+
+.description {
   display: flex;
   color: white;
   background-color: black;

@@ -12,6 +12,8 @@ const ItemList = (props) => {
             price={product.price}
             pictureUrl={product.pictureUrl}
             stock={product.stock}
+            slug={product.slug}
+            type={product.type}
           />
         );
       })}
