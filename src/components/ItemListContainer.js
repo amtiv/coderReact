@@ -5,10 +5,6 @@ import { toast } from "react-toastify";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-// const MiOnAdd = () => {
-//   console.log("OnAdd");
-// };
-
 export let productosIni = [
   {
     id: 1,
@@ -75,6 +71,39 @@ export let productosIni = [
     stock: 4,
     description:
       "Descubrí infinitas posibilidades para tus fotos con las 3 cámaras principales de tu equipo. Poné a prueba tu creatividad y jugá con la iluminación, diferentes planos y efectos para obtener grandes resultados Además, el dispositivo cuenta con cámara frontal de 20 Mpx para que puedas sacarte divertidas selfies o hacer videollamadas. Con su potente procesador y memoria RAM de 8 GB tu equipo alcanzará un alto rendimiento con gran velocidad de transmisión de contenidos y ejecutará múltiples aplicaciones a la vez sin demoras.",
+  },
+  {
+    id: 7,
+    type: "Samsung",
+    slug: "dDkjfQFji",
+    title: "Samsung Galaxy A52",
+    price: 74.999,
+    pictureUrl: "/imagenes/7.png",
+    stock: 7,
+    description:
+      "Con su pantalla Infinity-O extrafluida, el Samsung Galaxy A52 ofrece resistencia a agua y polvo, batería duradera, diseño sorprendente, y más. Permite ampliar la visión como nunca antes gracias a su pantalla Infinity-O Display de 6,5 pulgadas. Super AMOLED FHD+ alcanza los 800 nits1 para mayor claridad, incluso con la luz de día brillante El Samsung A52 presenta curvas cómodas y elegantes en un diseño perfecto. El mínimo borde de la cámara combina con el acabado mate en la parte posterior para lograr un aspecto icónico y unificado. Expresá tu estilo con un negro asombroso que combinará a la perfección con todos tus look",
+  },
+  {
+    id: 8,
+    type: "Apple",
+    slug: "fawgghKS",
+    title: "iPhone 11 Pro Max (256GB)",
+    price: 298.999,
+    pictureUrl: "/imagenes/8.png",
+    stock: 3,
+    description:
+      "La pantalla OLED Super Retina XDR de 6,5, sin marcos y con una resolución FullHD+, es la pantalla más nítida diseñada por Apple. El iPhone 11 Pro Max tiene un revolucionario sistema de tres cámaras que multiplica tu capacidad creativa y es fácil de usar. Con su cámara ultra angular nadie se queda afuera de la toma ya que abarca un campo visual cuatro veces más amplio. ",
+  },
+  {
+    id: 9,
+    type: "Xiaomi",
+    slug: "fwjNMFnmrE",
+    title: "Xiaomi Pocophone Poco X3 Pro Dual",
+    price: 91.999,
+    pictureUrl: "/imagenes/9.png",
+    stock: 4,
+    description:
+      "Descubrí infinitas posibilidades para tus fotos con las 4 cámaras principales de tu equipo. Poné a prueba tu creatividad y jugá con la iluminación, diferentes planos y efectos para obtener grandes resultados. on su potente procesador y memoria RAM de 8 GB tu equipo alcanzará un alto rendimiento con gran velocidad de transmisión de contenidos y ejecutará múltiples aplicaciones a la vez sin demoras",
   },
 ];
 

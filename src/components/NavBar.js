@@ -7,10 +7,10 @@ import { Link } from "react-router-dom";
 const NavBar = () => {
   return (
     <Navbar className="main-navbar" bg="dark" variant="dark">
-      <Navbar.Brand as={Link} to="/" className="justify-content">
+      <Navbar.Brand as={Link} to="/">
         iMovil
       </Navbar.Brand>
-      <Nav className="justify-content-end" style={{ width: "90%" }}>
+      <Nav className="justify-content-end" style={{ width: "92%" }}>
         <Nav.Link as={NavLink} to="/phone/Samsung">
           Samsung
         </Nav.Link>

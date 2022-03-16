@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-// import ItemCount from "./ItemCount";
 
 const Item = (props) => {
   return (
@@ -11,7 +10,6 @@ const Item = (props) => {
         <p>$ {props.price}</p>
         <p>Stock disponible: {props.stock}</p>
         <NavLink to={`/item/${props.slug}`}>+ Ver mas</NavLink>
-        {/* <ItemCount /> */}
       </div>
     </div>
   );
