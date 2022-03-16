@@ -6,7 +6,7 @@ import Main from "./components/Main";
 const App = () => {
   return (
     <BrowserRouter>
-      <NavBar classname="main-header" />
+      <NavBar />
       <Main />
     </BrowserRouter>
   );

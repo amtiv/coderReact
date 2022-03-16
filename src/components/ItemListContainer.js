@@ -1,6 +1,7 @@
 //import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
-import { Spinner, Toast } from "react-bootstrap";
+import { Container, Spinner } from "react-bootstrap";
+import { toast } from "react-toastify";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
@@ -101,7 +102,7 @@ export const ItemListContainer = () => {
         }
       })
       .catch((rej) => {
-        Toast.error("Hubo un error!");
+        toast.error("Hubo un error!");
       })
       .finally(() => {
         setLoading(false);
@@ -110,15 +111,15 @@ export const ItemListContainer = () => {
 
   return (
     <>
-      <main className="container">
+      <Container fluid>
         {loading ? (
-          <Spinner animation="border" role="status">
+          <Spinner animation="border" variant="light" role="status">
             <span className="visually-hidden">Loading...</span>
           </Spinner>
         ) : (
           <ItemList items={products} />
         )}
-      </main>
+      </Container>
     </>
   );
 };
