@@ -1,32 +1,40 @@
 import React from "react";
 import { useState } from "react";
+import { Button } from "react-bootstrap";
 
 const ItemCount = (props) => {
   const [contador, setContador] = useState(props.initial);
 
   const handleIncrease = () => {
-    if (contador >= props.stock) {
-      setContador(contador);
-    } else {
+    if (contador < props.stock) {
       setContador(contador + 1);
     }
   };
 
   const handleSubtract = () => {
-    if (props.initial >= contador) {
-      setContador(contador);
-    } else {
+    if (props.initial < contador) {
       setContador(contador - 1);
     }
   };
 
+  const handleSubmit = (e) => {
+    props.onAdd(contador);
+  };
+
   return (
-    <p>
-      <button onClick={handleIncrease}>Agregar</button> Cantidad actual:{" "}
-      {contador} <button onClick={handleSubtract}> Sacar</button>
+    <section>
+      <Button variant="success" onClick={handleIncrease}>
+        Add
+      </Button>{" "}
+      Current amount: {contador}{" "}
+      <Button variant="danger" onClick={handleSubtract}>
+        Subtract
+      </Button>
       <br />
-      <button onClick={props.onAdd}>Agregar al carrito</button>
-    </p>
+      <Button variant="warning" onClick={handleSubmit}>
+        Add to cart
+      </Button>
+    </section>
   );
 };
 
