@@ -2,23 +2,23 @@ import React from "react";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 
-const ItemCount = (props) => {
-  const [contador, setContador] = useState(props.initial);
+const ItemCount = ({ stock, initial, onAdd }) => {
+  const [contador, setContador] = useState(initial);
 
   const handleIncrease = () => {
-    if (contador < props.stock) {
+    if (contador < stock) {
       setContador(contador + 1);
     }
   };
 
   const handleSubtract = () => {
-    if (props.initial < contador) {
+    if (initial < contador) {
       setContador(contador - 1);
     }
   };
 
-  const handleSubmit = (e) => {
-    props.onAdd(contador);
+  const handleSubmit = () => {
+    onAdd(contador);
   };
 
   return (
