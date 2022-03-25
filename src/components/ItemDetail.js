@@ -9,7 +9,7 @@ const ItemDetail = ({ products }) => {
   const { AddToCart } = useContext(cartContext);
 
   const onAdd = (unit) => {
-    // AddToCart(products, unit);
+    AddToCart(products, unit);
     toast.success("Added: " + unit + " to the cart!");
   };
 

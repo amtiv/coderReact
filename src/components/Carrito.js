@@ -20,7 +20,7 @@ const Carrito = () => {
         ) : (
           <>
             {cart.map((item) => (
-              <div key={item.product.id} id="cart">
+              <div key={item.product.id}>
                 <img
                   src={item.product.pictureUrl}
                   height="250px"
