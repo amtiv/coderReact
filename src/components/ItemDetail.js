@@ -5,12 +5,13 @@ import { Link } from "react-router-dom";
 import { cartContext } from "./CartContext";
 
 const ItemDetail = ({ products }) => {
-  const [select, setSelect] = useState(false);
+  const [select, setSelect] = useState(true);
   const { AddToCart } = useContext(cartContext);
 
   const onAdd = (unit) => {
     AddToCart(products, unit);
     toast.success("Added: " + unit + " to the cart!");
+    setSelect(false);
   };
 
   return (
@@ -25,9 +26,9 @@ const ItemDetail = ({ products }) => {
           <h4 classname="description">{products.description}</h4>
           <p>Stock available: {products.stock}</p>
           {select ? (
-            <Link to={"/carrito"}>Go to cart</Link>
-          ) : (
             <ItemCount initial={1} stock={products.stock} onAdd={onAdd} />
+          ) : (
+            <Link to={"/carrito"}>Finish my purchase</Link>
           )}
         </div>
       </div>

@@ -6,6 +6,8 @@ const { Provider } = cartContext;
 
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalProd, setTotalProd] = useState(0);
 
   const AddToCart = (product, count) => {
     let cartProduct = { product, count };
@@ -19,11 +21,33 @@ const CartProvider = ({ children }) => {
       AuxCart = [cartProduct, ...cart];
     }
     setCart(AuxCart);
+
+    let tempProduct = 0;
+    let tempPrice = 0;
+
+    tempProduct = totalProd;
+    tempProduct += product.price * count;
+    setTotalProd(tempProduct);
+
+    tempPrice = totalPrice;
+    tempPrice += product.price * count;
+    setTotalPrice(tempPrice);
   };
 
   const remove = (product) => {
     if (isInCart(product)) {
+      let tempProduct = 0;
+      let tempPrice = 0;
+
       const AuxCart = cart.filter((item) => item.product !== product);
+
+      AuxCart.forEach((item) => {
+        tempPrice += item.product.price * item.count;
+        setTotalPrice(tempPrice);
+
+        tempProduct += item.count;
+        setTotalProd(tempProduct);
+      });
       setCart(AuxCart);
       toast.info(product.title + " removed");
     }
@@ -31,6 +55,8 @@ const CartProvider = ({ children }) => {
 
   const clear = () => {
     setCart([]);
+    setTotalPrice(0);
+    setTotalProd(0);
     toast.info("Cart deleted.");
   };
 
@@ -45,6 +71,8 @@ const CartProvider = ({ children }) => {
         AddToCart,
         remove,
         clear,
+        totalPrice,
+        totalProd,
       }}
     >
       {children}
