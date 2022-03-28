@@ -18,6 +18,14 @@ body {
   box-shadow: 0 1px 3px rgba(255, 255, 255, 0.918);
 }
 
+.cartW {
+  display: inline-flex;
+  span {
+    width: 1px;
+    height: 1px;
+  }
+}
+
 .items {
   display: inline-flex;
   color: black;
@@ -72,6 +80,35 @@ body {
 }
 
 .empty {
-  padding: 2em;
+  position: absolute;
+  bottom: 60%;
+  left: 30%;
+}
+
+.cartContainer {
+  display: inline-flex;
+}
+
+#cart {
+  color: black;
+  background-color: white;
+  border-radius: 1.5em;
+  border: gray 0.1em solid;
+  text-align: center;
+  padding: 1em;
+  margin: 1em;
+  img {
+    width: 5em;
+    height: 7em;
+  }
+}
+
+#total {
+  color: black;
+  background-color: white;
+  border-radius: 1.5em;
+  border: gray 0.1em solid;
+  text-align: center;
+  padding: 1em;
   margin: 1em;
 }

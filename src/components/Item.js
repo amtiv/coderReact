@@ -8,8 +8,8 @@ const Item = (props) => {
       <div>
         <h2>{props.title}</h2>
         <p>$ {props.price}</p>
-        <p>Stock disponible: {props.stock}</p>
-        <NavLink to={`/item/${props.slug}`}>+ Ver mas</NavLink>
+        <p>Stock available: {props.stock}</p>
+        <NavLink to={`/item/${props.slug}`}>+ See more</NavLink>
       </div>
     </div>
   );

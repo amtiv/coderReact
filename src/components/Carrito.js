@@ -10,25 +10,27 @@ const Carrito = () => {
 
   return (
     <>
-      <div id="cartBackground">
-        {cart.length == 0 ? (
-          <Link className="styleRemove flexCart" to="/">
-            <Button className="cartIsEmpty dropShadow" color="inherit">
-              <h3>Cart empty :(! Go to add items</h3>
-            </Button>
-          </Link>
+      <div id="container" className="cartContainer">
+        {cart.length === 0 ? (
+          <div className="empty">
+            <Link to="/">
+              <Button variant="light">
+                <h3>Cart empty :(! Go to add items</h3>
+              </Button>
+            </Link>
+          </div>
         ) : (
           <>
             {cart.map((item) => (
-              <div key={item.product.id} className="container">
+              <div key={item.product.id} className="container" id="cart">
                 <div>
-                  <img src={item.product.pictureUrl} />
+                  <img src={item.product.pictureUrl} alt="sample cell" />
                   <span>
                     <h3>Item:</h3>
                     <p>{item.product.title}</p>
                   </span>
                   <span>
-                    <h3>Item Price and Amount: </h3>
+                    <h3>Item price and amount: </h3>
                     <p>
                       $ {item.product.price} x {item.count} units
                     </p>
@@ -46,13 +48,15 @@ const Carrito = () => {
             ))}
 
             <div className="container">
-              <div>
-                <h3>Cart Total: $ {totalPrice}</h3>
-                <h3>Total Products: {totalProd}</h3>
+              <div id="total">
+                <span>
+                  <h3>Cart Total: $ {totalPrice}</h3>
+                  <h3>Total Products: {totalProd}</h3>
+                </span>
+                <Button onClick={clear} variant="danger">
+                  Clear Cart
+                </Button>
               </div>
-              <Button onClick={clear} variant="danger">
-                Clear Cart
-              </Button>
             </div>
           </>
         )}

@@ -26,7 +26,7 @@ const CartProvider = ({ children }) => {
     let tempPrice = 0;
 
     tempProduct = totalProd;
-    tempProduct += product.price * count;
+    tempProduct += count;
     setTotalProd(tempProduct);
 
     tempPrice = totalPrice;
@@ -40,6 +40,7 @@ const CartProvider = ({ children }) => {
       let tempPrice = 0;
 
       const AuxCart = cart.filter((item) => item.product !== product);
+      setCart(AuxCart);
 
       AuxCart.forEach((item) => {
         tempPrice += item.product.price * item.count;

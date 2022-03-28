@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BsCartFill } from "react-icons/bs";
+import { cartContext } from "./CartContext";
 
 const CartWidget = () => {
-  return <BsCartFill />;
+  const { totalProd } = useContext(cartContext);
+
+  return (
+    <div className="cartW">
+      <BsCartFill />
+      <span>({totalProd})</span>
+    </div>
+  );
 };
 
 export default CartWidget;

@@ -26,7 +26,7 @@ export let productosIni = [
     pictureUrl: "/imagenes/2.png",
     stock: 5,
     description:
-      "Se pliega en el bolsillo. Entra en tu cartera. Se desliza en tus jeans más apretados. Cuando lo sacás, se abre un smartphone 5G con pantalla completa que se adapta a tus ángulos favoritos. No hay dudas. Queríamos rediseñar el concepto del teléfono, y lo hicimos. Revisá los mensajes, tomá fotos, reproducí música y mucho más, todo sin abrir tu teléfono.4 La pantalla Cover Screen de 1,9 pulgadas muestra notificaciones y te permite interactuar de forma intuitiva con ellas.5 Elegí tus opciones de visualización favoritas para acceder fácilmente a ellas y personalízalas con diferentes estilos y colores.",
+      "Se pliega en el bolsillo. Entra en tu cartera. Se desliza en tus jeans más apretados. Cuando lo sacás, se abre un smartphone 5G con pantalla completa que se adapta a tus ángulos favoritos. No hay dudas. Queríamos rediseñar el concepto del teléfono, y lo hicimos. Revisá los mensajes, tomá fotos, reproducí música y mucho más, todo sin abrir tu teléfono. La pantalla Cover Screen de 1,9 pulgadas muestra notificaciones y te permite interactuar de forma intuitiva con ellas. Elegí tus opciones de visualización favoritas para acceder fácilmente a ellas y personalízalas con diferentes estilos y colores.",
   },
   {
     id: 3,
@@ -116,7 +116,7 @@ export const ItemListContainer = () => {
     const promesa = new Promise((res, rej) => {
       setTimeout(() => {
         res(productosIni);
-      }, 1000);
+      }, 5000);
     });
 
     promesa
@@ -143,7 +143,7 @@ export const ItemListContainer = () => {
       <Container fluid>
         {loading ? (
           <Spinner animation="border" variant="light" role="status">
-            <span className="visually-hidden">Loading...</span>
+            <span className="visually-hidden container">Loading...</span>
           </Spinner>
         ) : (
           <ItemList items={products} />
