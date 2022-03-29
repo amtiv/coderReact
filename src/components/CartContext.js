@@ -31,7 +31,8 @@ const CartProvider = ({ children }) => {
 
     tempPrice = totalPrice;
     tempPrice += product.price * count;
-    setTotalPrice(tempPrice);
+
+    setTotalPrice(tempPrice.toFixed(2));
   };
 
   const remove = (product) => {

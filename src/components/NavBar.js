@@ -11,13 +11,13 @@ const NavBar = () => {
         iMovil
       </Navbar.Brand>
       <Nav className="justify-content-end" style={{ width: "92%" }}>
-        <Nav.Link as={NavLink} to="/phone/Samsung">
+        <Nav.Link as={NavLink} to="/phone/samsung">
           Samsung
         </Nav.Link>
-        <Nav.Link as={NavLink} to="/phone/Apple">
+        <Nav.Link as={NavLink} to="/phone/apple">
           Apple
         </Nav.Link>
-        <Nav.Link as={NavLink} to="/phone/Xiaomi">
+        <Nav.Link as={NavLink} to="/phone/xiaomi">
           Xiaomi
         </Nav.Link>
         <Nav.Link as={NavLink} to="/carrito">

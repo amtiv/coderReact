@@ -3,7 +3,8 @@ import { Container, Spinner } from "react-bootstrap";
 import { toast } from "react-toastify";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
-import { productosIni } from "./ItemListContainer";
+import { getDocs, query, collection, where } from "firebase/firestore";
+import { db } from "./Firebase";
 
 function ItemDetailContainer() {
   const [products, setProducts] = useState({});
@@ -11,22 +12,16 @@ function ItemDetailContainer() {
   const { slug } = useParams();
 
   useEffect(() => {
-    const promesa = new Promise((res, rej) => {
-      setTimeout(() => {
-        res(productosIni);
-      }, 1000);
-    });
+    const peticion2 = query(
+      collection(db, "cellphones"),
+      where("slug", "==", slug)
+    );
+    getDocs(peticion2)
+      .then((res) => setProducts(res.docs.map((p) => p.data())[0]))
 
-    promesa
-      .then((rta) => {
-        const result = productosIni.find((product) => {
-          return product.slug === slug;
-        });
-        setProducts(result);
-      })
-      .catch((err) => {
-        toast.error("Hubo un error!");
-      })
+      .catch((err) =>
+        toast.error("We had a error with the products! Please try again later!")
+      )
       .finally(() => {
         setLoading(false);
       });
@@ -48,3 +43,27 @@ function ItemDetailContainer() {
 }
 
 export default ItemDetailContainer;
+
+/*
+
+  const promesa = new Promise((res, rej) => {
+      setTimeout(() => {
+        res(productosIni);
+      }, 1000);
+    });
+
+    promesa
+      .then((rta) => {
+        const result = productosIni.find((product) => {
+          return product.slug === slug;
+        });
+        setProducts(result);
+      })
+      .catch((err) => {
+        toast.error("Hubo un error!");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+
+*/
