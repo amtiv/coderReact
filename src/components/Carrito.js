@@ -3,10 +3,35 @@ import { cartContext } from "./CartContext";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { useContext } from "react";
+import { toast } from "react-toastify";
+import { db } from "./Firebase";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
 const Carrito = () => {
   const useCartContext = useContext(cartContext);
   const { cart, remove, clear, totalPrice, totalProd } = useCartContext;
+
+  const checkout = () => {
+    const orden = {
+      buyer: {
+        name: "Matias",
+        email: "mvtias.n@gmail.com",
+        number: "123456789",
+      },
+      items: cart,
+      date: serverTimestamp(),
+      total: totalProd,
+    };
+
+    const ordenColection = collection(db, "orders");
+    const orderRef = addDoc(ordenColection, orden);
+
+    orderRef.then((res) => {
+      toast("Order: " + res.id);
+      clear();
+      <Link to={"/"} />;
+    });
+  };
 
   return (
     <>
@@ -55,7 +80,13 @@ const Carrito = () => {
                 </span>
                 <Button onClick={clear} variant="danger">
                   Clear Cart
-                </Button>
+                </Button>{" "}
+                {""}
+                <Link to="/">
+                  <Button onClick={checkout} variant="success">
+                    Checkout
+                  </Button>
+                </Link>
               </div>
             </div>
           </>
