@@ -23,15 +23,27 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
   return (
     <section>
-      <Button variant="success" onClick={handleIncrease}>
+      <Button
+        variant="success"
+        onClick={handleIncrease}
+        disabled={contador === stock}
+      >
         Add
       </Button>{" "}
       Current amount: {contador}{" "}
-      <Button variant="danger" onClick={handleSubtract}>
+      <Button
+        variant="danger"
+        onClick={handleSubtract}
+        disabled={contador === 0}
+      >
         Subtract
       </Button>
       <br />
-      <Button variant="warning" onClick={handleSubmit}>
+      <Button
+        variant="warning"
+        onClick={handleSubmit}
+        disabled={contador === 0}
+      >
         Add to cart
       </Button>
     </section>

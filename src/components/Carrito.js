@@ -1,22 +1,38 @@
 import React from "react";
 import { cartContext } from "./CartContext";
 import { Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
-import { useContext } from "react";
+import { Button, Form } from "react-bootstrap";
+import { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { db } from "./Firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
 const Carrito = () => {
   const useCartContext = useContext(cartContext);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const { cart, remove, clear, totalPrice, totalProd } = useCartContext;
+
+  const subirName = (e) => {
+    const value = e.target.value;
+    setName(value);
+  };
+  const subirEmail = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+  };
+  const subirPhone = (e) => {
+    const value = e.target.value;
+    setPhone(value);
+  };
 
   const checkout = () => {
     const orden = {
       buyer: {
-        name: "Matias",
-        email: "mvtias.n@gmail.com",
-        number: "123456789",
+        name: name,
+        email: email,
+        number: phone,
       },
       items: cart,
       date: serverTimestamp(),
@@ -73,6 +89,35 @@ const Carrito = () => {
             ))}
 
             <div className="container">
+              <Form>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label>Name: </Form.Label>
+                  <Form.Control
+                    type="name"
+                    value={name}
+                    onChange={subirName}
+                    placeholder="Enter name"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                  <Form.Label>Email: </Form.Label>
+                  <Form.Control
+                    type="email"
+                    value={email}
+                    onChange={subirEmail}
+                    placeholder="Enter email"
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                  <Form.Label>Phone: </Form.Label>
+                  <Form.Control
+                    type="phone"
+                    placeholder="Enter phone"
+                    value={phone}
+                    onChange={subirPhone}
+                  />
+                </Form.Group>
+              </Form>
               <div id="total">
                 <span>
                   <h3>Cart Total: $ {totalPrice}</h3>
@@ -83,7 +128,7 @@ const Carrito = () => {
                 </Button>{" "}
                 {""}
                 <Link to="/">
-                  <Button onClick={checkout} variant="success">
+                  <Button type="submit" onClick={checkout} variant="success">
                     Checkout
                   </Button>
                 </Link>

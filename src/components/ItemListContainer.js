@@ -59,30 +59,3 @@ export const ItemListContainer = () => {
 };
 
 export default ItemListContainer;
-
-/*
-
- const promesa = new Promise((res, rej) => {
-      setTimeout(() => {
-        res(productosIni);
-      }, 1000);
-    });
-
-    promesa
-      .then((res) => {
-        if (type !== undefined) {
-          const productsFiltered = productosIni.filter(
-            (product) => product.type === type
-          );
-          setProducts(productsFiltered);
-        } else {
-          setProducts(productosIni);
-        }
-      })
-      .catch((rej) => {
-        toast.error("We had a error!");
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-    */

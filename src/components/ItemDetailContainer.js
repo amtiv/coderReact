@@ -43,27 +43,3 @@ function ItemDetailContainer() {
 }
 
 export default ItemDetailContainer;
-
-/*
-
-  const promesa = new Promise((res, rej) => {
-      setTimeout(() => {
-        res(productosIni);
-      }, 1000);
-    });
-
-    promesa
-      .then((rta) => {
-        const result = productosIni.find((product) => {
-          return product.slug === slug;
-        });
-        setProducts(result);
-      })
-      .catch((err) => {
-        toast.error("Hubo un error!");
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-
-*/
